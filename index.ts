@@ -108,16 +108,6 @@ class Account {
     this.publicKey = keypair.publicKey;
   }
 
-  sendMoney(amount: number, name:string ,payeePublicKey: string) {
-    const transaction = new Vote(amount, this.publicKey, payeePublicKey);
-
-    const sign = crypto.createSign('SHA256');
-    sign.update(transaction.toString()).end();
-
-    const signature = sign.sign(this.privateKey); 
-    Chain.instance.addBlock(transaction, name ,this.publicKey, signature);
-  }
-
   castVote(name: string, voterPublicKey: string){
     const vote = new Vote(1, this.publicKey, voterPublicKey);
 
@@ -143,6 +133,7 @@ const yarooq = new Account('yarooq');
 
 yarooq.castVote( 'yarooq votes for bob', bob.publicKey);
 satoshi.castVote('satoshi votes for alice', alice.publicKey);
+
 console.log(Chain.instance);
 console.log(satoshi.getVotes())
 console.log(bob.getVotes())
