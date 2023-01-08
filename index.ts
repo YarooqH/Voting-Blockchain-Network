@@ -1,6 +1,5 @@
 import * as crypto from 'crypto';
-
-// Transfer of funds between two Accounts
+// Action
 class Vote {
   constructor(
     public vote: number, 
