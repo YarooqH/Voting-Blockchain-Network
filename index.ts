@@ -129,6 +129,7 @@ const satoshi = new Account('satoshi');
 const bob = new Account('bob');
 const alice = new Account('alice');
 const yarooq = new Account('yarooq');
+const owais = new Account('owais');
 
 yarooq.castVote( 'yarooq votes for bob', bob.publicKey);
 satoshi.castVote('satoshi votes for alice', alice.publicKey);
